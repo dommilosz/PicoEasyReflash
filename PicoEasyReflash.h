@@ -1,7 +1,7 @@
 #include "PicoBootsel.h"
 #include "hardware/watchdog.h"
 
-int CheckRestart()
+int CheckIfRestartNeeded()
 {
 	if (get_bootsel_button())
 	{
@@ -21,9 +21,9 @@ int CheckRestart()
 	return -1;
 }
 
-void PerformRestart()
+void TickEasyReflash()
 {
-	int r = CheckRestart();
+	int r = CheckIfRestartNeeded();
 	if (r != -1)
 	{
 		watchdog_enable(1, 1);

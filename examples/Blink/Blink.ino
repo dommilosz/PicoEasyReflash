@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop() {
-  PerformRestart();
+  TickEasyReflash();
 
   //code to blink LED asynchronously.
   int leddata = millis() % 1000;
