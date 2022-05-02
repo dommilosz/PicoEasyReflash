@@ -18,4 +18,4 @@ void loop(){
 }
 ```
 
-Blink exaple in the exaples directory.
+Blink example in the examples directory.
