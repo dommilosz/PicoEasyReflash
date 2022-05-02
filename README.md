@@ -19,3 +19,5 @@ void loop(){
 ```
 
 Blink example in the examples directory.
+
+You can also manually reset the pico: `EasyReflashReset()`
