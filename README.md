@@ -23,3 +23,5 @@ Blink example in the examples directory.
 You can also manually reset the pico: `EasyReflashReset()`
 
 By defining `EASY_REFLASH_NO_PAUSE` you can use simpler version without many dependencies. Also it doesn't pause the other core while reading bootsel.
+
+To customize durations use `void EasyReflashSetDelays(int reset=50, int bootloader=1000)`
