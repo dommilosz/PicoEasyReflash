@@ -8,7 +8,7 @@ int CheckRestart()
 		int start = millis();
 		while (get_bootsel_button())
 		{
-			if ((millis() - start) > 2000)
+			if ((millis() - start) > 1000)
 			{
 				return 0;
 			}
