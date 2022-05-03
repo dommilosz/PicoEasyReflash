@@ -18,10 +18,17 @@ void loop(){
 }
 ```
 
-Blink example in the examples directory.
+Click [here](https://github.com/dommilosz/PicoEasyReflash/tree/master/examples) for examples.
+If you just want to reset without reading BOOTSEL status you can omit TickEasyReflash 
 
-You can also manually reset the pico: `EasyReflashReset()`
+# Other Functions
 
-By defining `EASY_REFLASH_NO_PAUSE` you can use simpler version without many dependencies. Also it doesn't pause the other core while reading bootsel.
-
-To customize durations use `void EasyReflashSetDelays(int reset=50, int bootloader=1000)`
+Function                                                                             |   Description                   |    Notes  
+-------------------------------------------------------------------------------------|---------------------------------|------------
+bool GetBOOTSEL()                                                                    | Reads the BOOTSEL Button        | This function takes about 100 μS. Can be switched to builtin non pausing version to free memory (EASY_REFLASH_NO_PAUSE)
+void EasyReflashReset()                                                              | Reset the PICO                  | -
+void EasyReflashResetBootloader()                                                    | Reset the PICO to BOOTLOADER    | Can be disabled to free memory (EASY_REFLASH_DISABLE_BOOTLOADER_RESET)
+int TickBootselRead(bool *holding = 0)                                               | Tick the BOOTSEL reader         | -
+void TickEasyReflash()                                                               | Tick the Easy Reflash           | Used to tick all reader and calls callbacks if needed.
+void EasyReflashSetDelays(int reset = 50, int bootloader = 1000)                     | Set delays for default callback | Use without parameters for default values.
+void EasyReflashSetCallback(bootsel_read_callback_t cb = DefaultEasyReflashCallback) | Override the default callback   | Use without parameters for default callback
