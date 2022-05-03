@@ -31,16 +31,14 @@ void EasyReflashReset()
 	}
 }
 
+#ifndef EASY_REFLASH_DISABLE_BOOTLOADER_RESET
 void EasyReflashResetBootloader()
 {
-#ifdef EASY_REFLASH_DISABLE_BOOTLOADER_RESET
-#error EasyReflashResetBootloader is Disabled when EASY_REFLASH_DISABLE_BOOTLOADER_RESET is defined.
-#else
-	reset_usb_boot(
+reset_usb_boot(
 		0u,
 		0u);
-#endif
 }
+#endif
 
 int TickBootselRead(bool *holding = 0)
 {
